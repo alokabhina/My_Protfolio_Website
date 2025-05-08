@@ -3,14 +3,17 @@ import { RevealOnScroll } from "../RevealOnScroll";
 const SkillSection = ({ title, skills, color }) => (
   <div className="rounded-xl p-6 bg-gray-800/30 hover:bg-gray-800/50 transition-all duration-300 group">
     <div className="flex items-center mb-6">
-      <div className={`w-3 h-8 rounded-full mr-3 bg-${color}-500 group-hover:h-10 transition-all duration-300`} />
+      <div className={`w-3 h-8 rounded-full mr-3 ${color === 'blue' ? 'bg-blue-500' : 'bg-cyan-500'} group-hover:h-10 transition-all duration-300`} />
       <h3 className="text-2xl font-bold text-white">{title}</h3>
     </div>
     <div className="flex flex-wrap gap-3">
       {skills.map((tech, i) => (
         <span
           key={i}
-          className={`bg-${color}-500/10 text-${color}-400 py-2 px-4 rounded-full text-sm font-medium hover:bg-${color}-500/20 hover:text-${color}-300 hover:scale-105 transition-all duration-200 cursor-default`}
+          className={`${color === 'blue' ? 
+            'bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300' : 
+            'bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500/20 hover:text-cyan-300'} 
+            py-2 px-4 rounded-full text-sm font-medium hover:scale-105 transition-all duration-200 cursor-default`}
         >
           {tech}
         </span>
@@ -97,7 +100,6 @@ export const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="p-6 rounded-xl border border-white/10 bg-gray-800/30 hover:bg-gray-800/50 transition-all duration-300">
                 <h3 className="text-2xl font-bold mb-6 text-white flex items-center">
-                  {/* Education Icon */}
                   <svg
                     className="w-6 h-6 mr-3 text-blue-400"
                     fill="none"
@@ -122,7 +124,6 @@ export const About = () => {
 
               <div className="p-6 rounded-xl border border-white/10 bg-gray-800/30 hover:bg-gray-800/50 transition-all duration-300">
                 <h3 className="text-2xl font-bold mb-6 text-white flex items-center">
-                  {/* Work Icon */}
                   <svg
                     className="w-6 h-6 mr-3 text-cyan-400"
                     fill="none"
